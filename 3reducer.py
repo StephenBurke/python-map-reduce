@@ -7,7 +7,6 @@ thisValue = 0.0
 for line in s:
   data = line.strip().split('\n')
 
-
   if data != thisKey:
     if thisKey:
       # output the last key value pair result
