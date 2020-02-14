@@ -5,20 +5,21 @@ thisKey = ""
 thisValue = 0.0
 
 for line in s:
-  data = line.strip().split('\n')
+  data = line.strip().split('\t')
+  paymentType, count = data
 
-  if data != thisKey:
+  if paymentType != thisKey:
     if thisKey:
       # output the last key value pair result
       r.write(str(thisKey) + '\t' + str(thisValue)+'\n')
 
     # start over when changing keys
-    thisKey = data
+    thisKey = paymentType
     thisValue = 0.0
 
   # apply the aggregation function
   #thisValue += float(amount)
-  thisValue +=1
+  thisValue += float(count)
 
 # output the final entry when done
 r.write(str(thisKey) + '\t' + str(thisValue)+'\n')
